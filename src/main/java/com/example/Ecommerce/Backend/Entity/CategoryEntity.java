@@ -26,8 +26,6 @@ public class CategoryEntity {
     private Long id;
 
     @Column
-    @NotEmpty(message = "Category name cannot be empty")
-    @Size(min = 2, message = "Category name must have at least two characters")
     private String categoryName;
 
     @Column
