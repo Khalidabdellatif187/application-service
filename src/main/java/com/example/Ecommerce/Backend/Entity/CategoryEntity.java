@@ -29,12 +29,8 @@ public class CategoryEntity {
     private String categoryName;
 
     @Column
-    @NotEmpty(message = "Description cannot be empty")
-    @Size(min = 2 , message = "Description must have at least two chracters")
     private String description;
 
     @Column
-    @NotEmpty(message = "ImageURL cannot be empty")
-    @Pattern(regexp = "^https?://.+\\..+$", message = "Invalid image URL format")
     private String imageUrl;
 }

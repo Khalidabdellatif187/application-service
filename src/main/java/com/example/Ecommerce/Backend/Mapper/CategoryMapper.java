@@ -5,6 +5,8 @@ import com.example.Ecommerce.Backend.Dto.CategoryDto;
 import com.example.Ecommerce.Backend.Entity.CategoryEntity;
 import org.mapstruct.Mapper;
 
+
+
 @Mapper
 public interface CategoryMapper {
 
