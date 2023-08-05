@@ -4,27 +4,45 @@ package com.example.Ecommerce.Backend.Controller;
 import com.example.Ecommerce.Backend.Dto.CategoryDto;
 import com.example.Ecommerce.Backend.Service.CategoryService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/category")
-@RequiredArgsConstructor
 public class CategoryController {
 
     private final CategoryService categoryService;
 
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
+
+    @GetMapping
+    public ResponseEntity<List<CategoryDto>> getAllCategories(){
+        return new ResponseEntity<>(categoryService.findAllCategories(),HttpStatus.OK);
+    }
 
 
     @PostMapping("/add")
     public ResponseEntity<CategoryDto> createCategory(@Valid@RequestBody CategoryDto categoryDto){
         return new ResponseEntity<>(categoryService.createCategory(categoryDto) , HttpStatus.CREATED);
     }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CategoryDto> getCategoryById(@PathVariable(name = "id") Long id){
+        return new ResponseEntity<>(categoryService.getCategoryById(id) , HttpStatus.OK);
+    }
+
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<CategoryDto> updateCategoryById(@Valid@RequestBody CategoryDto categoryDto , @PathVariable(name = "id") Long id){
+        return new ResponseEntity<>(categoryService.updateCategory(categoryDto , id) , HttpStatus.CREATED);
+    }
+
+
 }

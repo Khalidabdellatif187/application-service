@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,8 +25,10 @@ public class CategoryDto {
     @NotEmpty(message = "Description cannot be empty")
     @Size(min = 2 , message = "Description must have at least two chracters")
     private String description;
-    @NotEmpty(message = "ImageURL cannot be empty")
+    @NotEmpty(message = "ImageURL cannot be empty , Image Url Format Must Like 'http://example.com/image.jpg'")
     @Pattern(regexp = "^https?://.+\\..+$", message = "Invalid image URL format")
     private String imageUrl;
+
+
 
 }

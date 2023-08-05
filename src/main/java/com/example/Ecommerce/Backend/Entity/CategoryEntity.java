@@ -11,11 +11,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 @Table(name="category")
 public class CategoryEntity {
 
@@ -33,4 +34,7 @@ public class CategoryEntity {
 
     @Column
     private String imageUrl;
+
+
+
 }
