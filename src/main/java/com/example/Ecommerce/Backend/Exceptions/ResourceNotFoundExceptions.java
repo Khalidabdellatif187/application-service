@@ -11,12 +11,21 @@ public class ResourceNotFoundExceptions extends RuntimeException {
     private String resourceName;
     private String fieldName;
     private long fieldValue;
+    private String fieldValue2;
 
     public ResourceNotFoundExceptions(String resourceName, String fieldName, long fieldValue) {
         super(String.format("%s not found with %s : '%s'", resourceName, fieldName, fieldValue)); // Post not found with id : 1
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;
+    }
+
+
+    public ResourceNotFoundExceptions(String resourceName , String fieldName , String fieldValue2){
+        super(String.format("%s not found with %s : '%s'", resourceName, fieldName, fieldValue2));
+        this.resourceName = resourceName;
+        this.fieldName = fieldName;
+        this.fieldValue2 = fieldValue2;
     }
 
     public String getResourceName() {
@@ -31,8 +40,7 @@ public class ResourceNotFoundExceptions extends RuntimeException {
         return fieldValue;
     }
 
-
-
-
-
+    public String getFieldValue2() {
+        return fieldValue2;
+    }
 }

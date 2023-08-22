@@ -56,10 +56,17 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public CategoryEntity findByCatgoryName(String categoryName) {
+        return categoryRepository.findByCategoryName(categoryName);
+    }
+
+    @Override
     public CategoryDto deleteById(Long id) {
         CategoryEntity categoryEntity = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundExceptions("category" , "id" , id));
         categoryRepository.delete(categoryEntity);
         return categoryMapper.toCategoryDto(categoryEntity);
     }
+
+
 }
