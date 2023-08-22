@@ -45,4 +45,17 @@ public class CategoryController {
     }
 
 
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<CategoryDto> deleteById(@PathVariable(name="id") Long id){
+        return new ResponseEntity<>(categoryService.deleteById(id) , HttpStatus.OK);
+    }
+
+
+
+
+
+
+
+
+
 }

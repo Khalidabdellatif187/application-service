@@ -11,6 +11,8 @@ public interface CategoryService {
     public List<CategoryDto> findAllCategories();
     public CategoryDto updateCategory(CategoryDto categoryDto,Long categoryId);
 
+    public CategoryDto deleteById(Long id);
+
 
 
 }
