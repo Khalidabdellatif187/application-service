@@ -6,6 +6,7 @@ import com.example.Ecommerce.Backend.Entity.ProductEntity;
 import org.apache.catalina.LifecycleState;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -21,6 +22,9 @@ public interface ProductMapper {
     ProductEntity toProductEntity(ProductDto productDto);
 
     List<ProductDto> toListOfProductsDtos(List<ProductEntity> productEntityList);
+
+    @Mapping(target =  "id" , ignore = true)
+    void updateProductEntityFromProductDto(ProductDto productDto , @MappingTarget ProductEntity productEntity);
 
 
 }
