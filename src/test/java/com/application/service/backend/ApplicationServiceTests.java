@@ -2,6 +2,8 @@ package com.application.service.backend;
 
 import com.application.service.backend.Dto.CategoryDto;
 import com.application.service.backend.ServiceImpl.CategoryServiceImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,8 +22,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.SerializationFeature;
+
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -30,14 +31,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @Testcontainers
 @AutoConfigureMockMvc
-class ECommerceBackendApplicationTests {
+class ApplicationServiceTests {
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	@MockBean
 	private CategoryServiceImpl service;
-	private static final Logger LOGGER = LoggerFactory.getLogger(ECommerceBackendApplicationTests.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationServiceTests.class);
 
 
 
